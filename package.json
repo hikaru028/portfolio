@@ -1,7 +1,8 @@
 {
-  "name": "nextjs",
+  "name": "my-portfolio",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,18 +10,50 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.4.2",
+    "@nextui-org/react": "^2.4.1",
+    "@nextui-org/tabs": "^2.0.31",
+    "@prisma/client": "^5.15.0",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-icons": "^1.3.0",
+    "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-tabs": "^1.0.4",
+    "@react-three/fiber": "^8.16.8",
+    "aws-sdk": "^2.1637.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.2.6",
+    "framer-motion-3d": "^11.2.10",
+    "lucide-react": "^0.379.0",
+    "next": "^14.2.3",
+    "next-compose-plugins": "^2.2.1",
+    "next-link": "^2.0.0",
+    "next-themes": "^0.3.0",
+    "nodemailer": "^6.9.13",
+    "pg": "^8.12.0",
     "react": "^18",
+    "react-countup": "^6.5.3",
     "react-dom": "^18",
-    "next": "14.2.3"
+    "react-hook-form": "^7.51.5",
+    "react-icons": "^5.2.1",
+    "swiper": "^11.1.3",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7",
+    "three": "^0.165.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@next/swc-darwin-x64": "^15.0.0-rc.0",
     "@types/node": "^20",
+    "@types/nodemailer": "^6.4.15",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
     "eslint": "^8",
-    "eslint-config-next": "14.2.3"
+    "eslint-config-next": "14.2.3",
+    "postcss": "^8",
+    "prisma": "^5.15.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
   }
 }
