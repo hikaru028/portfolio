@@ -5,10 +5,13 @@ import Mail from 'nodemailer/lib/mailer';
 const transport = nodemailer.createTransport({
     host: process.env.MAIL_HOST,
     port: parseInt(process.env.MAIL_PORT!, 10),
-    secure: process.env.NODE_ENV !== 'development',
+    secure: false, // use TLS
     auth: {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
+    },
+    tls: {
+        rejectUnauthorized: false, // Allow self-signed certificates
     },
 } as SMTPTransport.Options);
 
