@@ -84,7 +84,7 @@ const Form: FC = () => {
     }, [visible]);
 
     return (
-        <form className='flex flex-col gap-y-4' onSubmit={sendEmail}>
+        <form className='flex flex-col gap-y-4' onSubmit={sendEmail} action="/api/route" method='POST'>
             {/* Name */}
             <div className='relative flex items-center'>
                 <Input onChange={handleChange} type='text' id='sender' placeholder='Name *' value={formData.sender} required/>

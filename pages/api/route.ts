@@ -10,12 +10,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             address: email,
         };
 
-        const receiver = [
-            {
-                name: process.env.OWNER || 'Owner Name', // Default value if undefined
-                address: process.env.EMAIL || 'owner@example.com', // Default value if undefined
-            }
-        ];
+        const receiver = {
+            name: process.env.OWNER || 'Owner Name', 
+            address: process.env.EMAIL || 'owner@example.com',
+        };
 
         try {
             const result = await sendEmail({
