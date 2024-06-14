@@ -14,9 +14,8 @@ const ProjectCard:FC<Props> = ({ project }) => {
     <Card className='group overflow-hidden relative mx-auto xl:mx-0 shadow-lg'>
         <CardHeader className='p-0'>
             <div className='relative w-full h-[300px] flex items-center justify-center bg-tertiary overflow-hidden bg-project_bg_light dark:bg-none dark:bg-[#464F66] bg-no-repeat bg-[30%]'>
-                {/* image */}
+                {/* Image */}
                 <Image
-                    // isZoomed
                     width={240}
                     height={250}
                     alt="Project image"
@@ -25,20 +24,26 @@ const ProjectCard:FC<Props> = ({ project }) => {
                     priority
                 />
 
-                {/* buttons */}
+                {/* Link buttons */}
                 <div className='flex gap-x-4'>
-                    <Link 
-                        href={project.link} 
-                        className='bg-secondary w-[50px] h-[50px] rounded-full flex justify-center items-center scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-200'
-                    >
-                        <Link2Icon className='text-white dark:text-black' />
-                    </Link>
-                    <Link 
-                        href={project.github} 
-                        className='bg-secondary w-[50px] h-[50px] rounded-full flex justify-center items-center scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-200'
-                    >
-                        <Github className='text-white dark:text-black' />
-                    </Link>
+                    {project.link !== '' &&
+                        <a 
+                            href={project.link}
+                            target="_blank" 
+                            className='bg-secondary w-[50px] h-[50px] rounded-full flex justify-center items-center scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-200'
+                        >
+                            <Link2Icon className='text-white dark:text-black' />
+                        </a>
+                    }
+                    {project.github !== '' &&
+                        <a 
+                            href={project.github}
+                            target="_blank" 
+                            className='bg-secondary w-[50px] h-[50px] rounded-full flex justify-center items-center scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-200'
+                        >
+                            <Github className='text-white dark:text-black' />
+                        </a>
+                    }
                 </div>
             </div>
         </CardHeader>

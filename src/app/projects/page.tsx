@@ -20,7 +20,7 @@ const fadeInAnimationVariants = {
   }),
 };
 
-// Remove category duplicattes
+// Remove category duplicates
 const uniqueCategories: string[] = [
   'all projects',
   ...new Set(ProjectData.map(item => item.category).filter((category): category is string => category !== undefined))
@@ -59,7 +59,7 @@ const Projects: FC = () => {
         </TabsList>
 
         {/* Tabs content */}
-        <div className='tect-lg xl:mt-8 grid grid-cols-1 lg:grid-cols-3 gap-4'>
+        <div className='text-lg xl:mt-8 grid grid-cols-1 lg:grid-cols-3 gap-4'>
           {filteredProjects.map((project, index) => {
             return (
               <motion.div

@@ -27,10 +27,12 @@ const Header: FC = () => {
     <header className={`${header ? 'py-2 bg-white shadow-lg dark:bg-[#464F66]' : 'py-4 bg-[#f2f2f2] dark:bg-background'} sticky top-0 z-50 transition-all`}>
       <div className='container mx-auto'>
         <div className='w-full h-[80px] flex justify-between items-center'>
+          {/* Logo */}
           <Logo />
 
+          {/* Navigation */}
           <div className='flex items-center gap-x-6'>
-            {/* Navigation */}
+            {/* Desktop Navigation */}
             <Nav 
               containerStyles='hidden xl:flex gap-x-8 items-center'
               linkStyles='relative hover:text-primary transition-all cursor-pointer'
