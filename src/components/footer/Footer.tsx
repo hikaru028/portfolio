@@ -16,7 +16,7 @@ const Footer = (props: Props) => {
 
           {/* Copyright */}
           <div className='text-muted-foreground mt-10'>
-            Copyright &copy; Hikaru Suzuki &nbsp;&nbsp;|&nbsp;&nbsp; All rights reserved
+            Copyright &copy; 2024 Hikari. All rights reserved.
           </div>
         </div>
       </div>
