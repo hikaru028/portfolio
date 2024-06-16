@@ -29,7 +29,7 @@ const Hero = () => {
                             Get in touch <Send size={18} />
                         </Button>
                     </Link>
-                    <a href='/pdf/CV_Hikaru Suzuki.pdf' download>
+                    <a href='https://drive.google.com/file/d/1ejJDsrYwfUuZKHhcltzFdtiiKk-Mjl22/view?usp=sharing' target="_blank">
                         <Button variant='secondary' className='gap-x-2 w-[166px] shadow-lg hover:shadow-none'>
                             Download CV <Download size={18} />
                         </Button>

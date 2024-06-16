@@ -4,6 +4,7 @@ import React, { FC } from 'react'
 import {
   RiLinkedinFill,
   RiGithubFill,
+  RiTwitterXFill,
   RiInstagramFill,
 } from 'react-icons/ri'
 import Link from 'next/link'
@@ -16,6 +17,10 @@ const icons =[
   {
     path: 'https://github.com/hikaru028',
     name: <RiGithubFill />
+  },
+  {
+    path: 'https://twitter.com/strangeman_jp',
+    name: <RiTwitterXFill />
   },
   {
     path: 'https://www.instagram.com/itsrukahi/',
