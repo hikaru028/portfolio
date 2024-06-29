@@ -19,11 +19,11 @@ const icons =[
     name: <RiGithubFill />
   },
   {
-    path: 'https://twitter.com/strangeman_jp',
+    path: 'https://twitter.com/itshikaru28',
     name: <RiTwitterXFill />
   },
   {
-    path: 'https://www.instagram.com/itsrukahi/',
+    path: 'https://www.instagram.com/itshikaru28/',
     name: <RiInstagramFill />
   }
 ]

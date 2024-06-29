@@ -59,7 +59,7 @@ const DevImg:FC<Props> = ({ containerStyles, imgSrc }) => {
       }}
     >
       {/* Badges */}
-      <Badge 
+      {/* <Badge 
           containerStyles='hidden absolute top-[100px] -right-10 z-30'
           icon=<RiBriefcase4Fill/>
           endCountNum={1}
@@ -72,7 +72,7 @@ const DevImg:FC<Props> = ({ containerStyles, imgSrc }) => {
           endCountNum={7}
           endCountText=''
           badgeText='Finished Projects' 
-      />
+      /> */}
 
       {/* Image */}
       <Image src={imgSrc} fill priority alt='photo' />

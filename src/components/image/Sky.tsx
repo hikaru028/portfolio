@@ -2,7 +2,7 @@
 
 import React, { FC, useEffect, useState } from 'react'
 import { Stars } from '@/components'
-import { motion, useAnimation, useScroll } from 'framer-motion';
+import { motion, useAnimation, useScroll, useTransform } from 'framer-motion';
 
 const getColor = () => {
   const colorArray = ['FFFFF0', 'FFFEDC', 'FFDBA4'];
@@ -12,8 +12,8 @@ const getColor = () => {
 
 const Sky: FC = () => {
   const [stars, setStars] = useState<JSX.Element[]>([]);
-  const controls = useAnimation();
-  const { scrollY } = useScroll();
+  const { scrollYProgress } = useScroll();
+  const rotate = useTransform(scrollYProgress, [0, 6], [0, 90]);
 
   useEffect(() => {
     const generateStars = (numStars: number) => {
@@ -30,33 +30,15 @@ const Sky: FC = () => {
       setStars(starsArray);
     };
 
-    generateStars(5000); // Adjust the number of stars as needed
+    generateStars(4000);
   }, []);
-
-  useEffect(() => {
-    const updateAnimation = () => {
-      controls.start({
-        rotate: scrollY.get() / 3000, // Adjust the divisor to control the rotation speed
-        transition: {
-          type: 'spring',
-          stiffness: 30,
-          damping: 10,
-          ease: "ease",
-          duration: 0.01,
-        }
-      });
-    };
-
-    const unsubscribe = scrollY.on("change", updateAnimation);
-    return () => unsubscribe();
-  }, [controls, scrollY]);
 
   return (
     <motion.div
       className='fixed w-[5000px] h-[5000px] -top-1/2 -left-1/2 -z-50'
-      animate={controls}
-      style={{ transform: 'translate(-50%, -50%)'}} // Set the rotation origin to the bottom center
+      style={{ rotate }}
     >
+      Hello
       {stars}
     </motion.div>
   )

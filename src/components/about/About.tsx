@@ -1,148 +1,20 @@
 'use client'
 
 import React, { FC } from 'react'
-import {
-    User2,
-    MailIcon,
-    HomeIcon,
-    PhoneCall,
-    GraduationCap,
-    Calendar,
-    Briefcase,
-} from 'lucide-react'
 import { useTheme } from 'next-themes'
 import Image from 'next/image'
 import { Tabs, TabsList, TabsTrigger, TabsContent} from '../ui/tabs'
 import AboutImg from '../image/AboutImg'
-
-const personalData = [
-    {
-        icon: <User2 size={20} />,
-        text: 'Hikaru Suzuki',
-    },
-    {
-        icon: <PhoneCall size={20} />,
-        text: '+64 21 084 63502',
-    },
-    {
-        icon: <MailIcon size={20} />,
-        text: 'h.suzuki.028@gmail.com',
-    },
-    {
-        icon: <Calendar size={20} />,
-        text: 'Born on 28th September',
-    },
-    {
-        icon: <GraduationCap size={20} />,
-        text: 'Master of Information Technology',
-    },
-    {
-        icon: <HomeIcon size={20} />,
-        text: 'Auckland, New Zealand',
-    },
-];
-
-const educationData = [
-    {
-        university: 'the University of Auckland',
-        degree: 'Master of Information Technology',
-        years: '2023 - Current'
-    },
-    {
-        university: 'Soka University',
-        degree: 'Postgraduate certificate of Education',
-        years: '2013 - 2025'
-    },
-    {
-        university: 'Kanagawa University',
-        degree: 'Bachelor of Economics',
-        years: '2008 - 2012'
-    },
-]
-
-const workData =[
-    {
-        company: 'Megaride Ltd.',
-        role: 'Web Development Intern',
-        title: 'Part-time',
-        years: 'Mar 2024 - Current'
-    },
-    {
-        company: 'InoBasic Co.',
-        role: 'Web Development Intern',
-        title: 'Part-time',
-        years: 'Nov 2023 - Feb 2024'
-    },
-    {
-        company: 'Mangaweka Adventure Company Ltd.',
-        role: 'All rounder',
-        title: 'Full-time',
-        years: 'Oct 2020 - Mar 2022'
-    },
-    {
-        company: 'Primary Schools',
-        role: 'Teacher',
-        title: 'Full-time',
-        years: 'Apr 2014 - Mar 2019'
-    }, 
-];
-
-const skillData = [
-    {
-        name: 'Frontend'
-    },
-    {
-        name: 'HTML/CSS, React, React Native'
-    },
-    {
-        name: 'Backend'
-    },
-    {
-        name: 'Java, JavaScript, Next.js, TypeScript, PHP, Python, C#'
-    },
-    {
-        name: 'Database'
-    },
-    {
-        name: 'MySQL, PostgreSQL, MongoDB'
-    },
-    {
-        name: 'Could Computing'
-    },
-    {
-        name: 'AWS'
-    },
-    {
-        name: 'Testing'
-    },
-    {
-        name: 'Jest'
-    },
-    {
-        title: 'tools',
-        data: [
-            {
-                imgPath: '/svg/vscode.svg'
-            },
-            {
-                imgPath: '/svg/intellij.svg'
-            },
-            {
-                imgPath: '/svg/vim.svg'
-            },
-        ]
-    }
-];
-
+import { personalData, educationData, workData, skillData } from './Data';
 
 const About:FC = () => {
-    const { theme, setTheme } = useTheme();
+    const { theme } = useTheme();
     const getData = (arr: DataItem[], title: string): DataItem | undefined => {
         return arr.find((item) => item.title === title); 
     };
 
     return (
-        <section id='about' className='xl:h-[860px] pb-12 xl:pb-24 pt-20 xl:pt-40 px-20'>
+<section id='about' className='xl:h-[860px] pb-12 xl:pb-24 pt-20 xl:pt-40 px-20'>
             <div className='container mx-auto'>
                 <h2 className='section-title text-center mx-auto'>
                     Who am I ?
@@ -294,7 +166,7 @@ const About:FC = () => {
                 </div>
             </div>
         </section>
-  )
+    )
 }
 
 export default About

@@ -12,7 +12,7 @@ const variants = {
 };
 
 const Template: FC<RootLayoutProps> = ({ children }) => {
-    const {theme, setTheme} = useTheme();
+    const { theme } = useTheme();
     const completion = useScrollProgress();
 
   return (

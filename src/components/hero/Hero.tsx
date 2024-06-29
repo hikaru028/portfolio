@@ -7,8 +7,9 @@ import { Download, Send } from 'lucide-react'
 import { DevImg, Socials } from '@/components'
 import { RiArrowDownSLine } from 'react-icons/ri'
 
+
 const Hero = () => {
-    const { theme, setTheme } = useTheme();
+    const { theme } = useTheme();
 
   return (
     <section className='py-12 xl:py-24 w-full h-[84vh] xl:pt-28 bg-hero bg-no-repeat bg-bottom bg-cover dark:bg-none'>
@@ -29,7 +30,7 @@ const Hero = () => {
                             Get in touch <Send size={18} />
                         </Button>
                     </Link>
-                    <a href='https://drive.google.com/file/d/1ejJDsrYwfUuZKHhcltzFdtiiKk-Mjl22/view?usp=sharing' target="_blank">
+                    <a href='https://drive.google.com/file/d/1D9Gej225L5fIxUwmcLZj5nkrZU3iSZ71/view?usp=sharing' target="_blank">
                         <Button variant='secondary' className='gap-x-2 w-[166px] shadow-lg hover:shadow-none'>
                             Download CV <Download size={18} />
                         </Button>
