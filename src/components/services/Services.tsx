@@ -62,7 +62,7 @@ const Services:FC = () => {
                                     zIndex: 0,
                                 }}
                             ></div>
-                            <CardHeader className='text-primary absolute -top-[10px] z-50'>
+                            <CardHeader className='text-primary absolute -top-[10px]'>
                                 <div className='w-[70px] h-[70px] rounded-full bg-primary/80 flex justify-center items-center brightness-100'>
                                     {item.icon}
                                 </div>
