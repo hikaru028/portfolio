@@ -6,7 +6,22 @@ import { Button } from '@/components/ui/button'
 import { Download, Send } from 'lucide-react'
 import { DevImg, Socials } from '@/components'
 import { RiArrowDownSLine } from 'react-icons/ri'
+import { motion } from 'framer-motion'
 
+// Initialise framer motion
+const fadeInAnimationVariants = {
+    initial: {
+      opacity: 0,
+      y: 100,
+    },
+    animate: (index: number) => ({
+      opacity:1,
+      y: 0,
+      transition: {
+        delay: 0.08 * index,
+      },
+    }),
+  };
 
 const Hero = () => {
     const { theme } = useTheme();
@@ -17,14 +32,57 @@ const Hero = () => {
             <div className='flex flex-col justify-between gap-x-8'>
                 {/* Text */}
                 <div className='flex flex-col justify-center max-w-[600px] mx-auto xl:mx-0 text-center xl:text-left'>
-                    <div className='text-sm font-semibold uppercase mb-4 text-primary tracking-[4px]'>Full-stack Developer</div>
-                    <h2 className='h2'>Hi, my name is</h2>
-                    <h1 className='h1'>Hikaru Suzuki</h1>
-                    <p className='subtitle max-w-[490px] mx-auto mt-2 xl:mx-0'>Love to create a thing I love</p>
+                    <motion.div
+                        variants={fadeInAnimationVariants}
+                        initial='initial'
+                        whileInView='animate'
+                        viewport={{once: true}}
+                        custom={0} 
+                        className='text-sm font-semibold uppercase mb-4 text-primary tracking-[4px]'
+                    >
+                        Full-stack Developer
+                    </motion.div>
+                    <motion.h2
+                        variants={fadeInAnimationVariants}
+                        initial='initial'
+                        whileInView='animate'
+                        viewport={{once: true}}
+                        custom={1} 
+                        className='h2'
+                    >
+                        Hi, my name is
+                    </motion.h2>
+                    <motion.h1
+                        variants={fadeInAnimationVariants}
+                        initial='initial'
+                        whileInView='animate'
+                        viewport={{once: true}}
+                        custom={2} 
+                        className='h1'
+                    >
+                        Hikaru Suzuki
+                    </motion.h1>
+                    <motion.p
+                        variants={fadeInAnimationVariants}
+                        initial='initial'
+                        whileInView='animate'
+                        viewport={{once: true}}
+                        custom={2} 
+                        className='subtitle max-w-[490px] mx-auto mt-2 xl:mx-0'
+                    >
+                        Love to create a thing I love
+                    </motion.p>
                 </div>
 
                 {/* Buttons */}
-                <div className='flex flex-col gap-y-3 md:flex-row gap-x-3 mx-auto xl:mx-0 mb-12'>
+                <motion.div 
+                    variants={fadeInAnimationVariants}
+                    initial='initial'
+                    whileInView='animate'
+                    viewport={{once: true}}
+                    custom={3} 
+                    className='flex flex-col gap-y-3 md:flex-row gap-x-3 mx-auto xl:mx-0 mb-12'
+                >
                     <Link href='/contact'>
                         <Button className='gap-x-2 w-[166px] shadow-lg hover:shadow-none'>
                             Get in touch <Send size={18} />
@@ -35,7 +93,7 @@ const Hero = () => {
                             Download CV <Download size={18} />
                         </Button>
                     </a>
-                </div>
+                </motion.div>
 
                 {/* Socials */}
                 <Socials 

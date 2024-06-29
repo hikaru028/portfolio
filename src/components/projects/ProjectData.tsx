@@ -8,6 +8,14 @@ export const ProjectData: Project[] = [
         github: 'https://github.com/hikaru028/portfolio',
     },
     {
+        image: '/png/x-clone.png',
+        category: 'Node.js',
+        title: 'X-clone app',
+        description: 'I am creating the next project...',
+        link: '-',
+        github: 'https://github.com/hikaru028/Twitter-Clone',
+    },
+    {
         image: '/png/kalah.png',
         category: 'Java',
         title: 'Kalah Game',
@@ -16,20 +24,12 @@ export const ProjectData: Project[] = [
         github: 'https://github.com/hikaru028/Kalah-in-Java',
     },
     {
-        image: '',
+        image: '/png/soon.png',
         category: 'C#',
         title: 'Othello Game',
-        description: '',
+        description: 'The server pairs up players and coordinates the exchange of game moves. It is built using the C# programming language and .NET 7.',
         link: '',
         github: 'https://github.com/hikaru028/Othello-in-CSharp',
-    },
-    {
-        image: '/png/soon.png',
-        category: 'Node.js',
-        title: '',
-        description: 'I am creating the next project...',
-        link: '-',
-        github: 'https://github.com/hikaru028',
     },
 ];
 

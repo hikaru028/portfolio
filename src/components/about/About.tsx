@@ -9,12 +9,9 @@ import { personalData, educationData, workData, skillData } from './Data';
 
 const About:FC = () => {
     const { theme } = useTheme();
-    const getData = (arr: DataItem[], title: string): DataItem | undefined => {
-        return arr.find((item) => item.title === title); 
-    };
 
     return (
-<section id='about' className='xl:h-[860px] pb-12 xl:pb-24 pt-20 xl:pt-40 px-20'>
+        <section id='about' className='xl:h-[860px] pb-12 xl:pb-24 pt-20 xl:pt-40 px-20'>
             <div className='container mx-auto'>
                 <h2 className='section-title text-center mx-auto'>
                     Who am I ?
