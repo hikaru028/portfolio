@@ -2,7 +2,7 @@
 
 import React, { FC, useEffect, useState } from 'react'
 import { Stars } from '@/components'
-import { motion, useAnimation, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const getColor = () => {
   const colorArray = ['FFFFF0', 'FFFEDC', 'FFDBA4'];
