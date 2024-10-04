@@ -28,7 +28,7 @@ const ProjectCard:FC<Props> = ({ project }) => {
                 {/* Image */}
                 <div className='w-full h-full flex justify-center items-center'>
                     <Image
-                        width={200}
+                        width={300}
                         height={200}
                         alt="Project image"
                         src={project.image}
