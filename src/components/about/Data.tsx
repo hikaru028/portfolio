@@ -54,6 +54,12 @@ const educationData = [
 
 const workData = [
     {
+        company: 'MDMC Advertising',
+        role: 'Software Developer Intern',
+        title: 'Full-time',
+        years: 'Oct 2024 - Current'
+    },
+    {
         company: 'Megaride Ltd.',
         role: 'Web Development Intern',
         title: 'Part-time',
@@ -64,18 +70,6 @@ const workData = [
         role: 'Web Development Intern',
         title: 'Part-time',
         years: 'Nov 2023 - Feb 2024'
-    },
-    {
-        company: 'Mangaweka Adventure Company Ltd.',
-        role: 'All rounder',
-        title: 'Full-time',
-        years: 'Oct 2020 - Mar 2022'
-    },
-    {
-        company: 'Primary Schools',
-        role: 'Teacher',
-        title: 'Full-time',
-        years: 'Apr 2014 - Mar 2019'
     },
 ];
 
