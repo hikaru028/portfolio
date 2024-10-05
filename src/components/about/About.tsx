@@ -11,7 +11,7 @@ const About:FC = () => {
     const { theme } = useTheme();
 
     return (
-        <section id='about' className='xl:h-[860px] pb-12 xl:pb-24 pt-20 xl:pt-40 px-20'>
+        <section id='about' className='xl:h-[860px] pb-12 xl:pb-24 pt-20 xl:pt-40 px-20 mb-20'>
             <div className='container mx-auto'>
                 <h2 className='section-title text-center mx-auto'>
                     Who am I ?
@@ -51,7 +51,7 @@ const About:FC = () => {
                                         return (
                                             <div className='flex items-center mb-2 xl:mb-0 gap-x-4 mx-auto xl:mx-0' key={index}>
                                                 <div className='text-primary'>{item.icon}</div>
-                                                <div>{item.text}</div>
+                                                <div className='text-sm font-light'>{item.text}</div>
                                             </div>
                                         );
                                     })}
@@ -66,18 +66,18 @@ const About:FC = () => {
                                     </p>
                                 </div>
                                 <div className='gap-4 mb-12 ml-24 relative'>
-                                    <div className='h-full w-[1px] bg-border bg-[#ededed] dark:bg-[#979DAE] absolute top-[-5px] left-[4px] z-0'></div>
+                                    <div className='h-full w-[1px] bg-border bg-[#ededed] dark:bg-[#979DAE] absolute top-[-5px] left-[5px] z-0'></div>
                                     {educationData.map((item, index) => {
                                         const { university, degree, years} = item;
                                          return (
                                              <div className='flex flex-col gap-x-4 mx-auto xl:mx-0' key={index}>
                                                 <div className='flex flex-row items-center mb-2'>
                                                     <div className='w-3 h-3  bg-primary rounded-full mr-4 z-10'></div>
-                                                    <div className='text-primary font-semibold text-xl leading-none'>{university}</div>
+                                                    <div className='text-primary font-semibold text-lg leading-none'>{university}</div>
                                                 </div>
                                                 <div className='flex flex-col ml-12 mb-6'>
-                                                    <div className=''>{degree}</div>
-                                                    <div className='text-muted-foreground text-base font-light'>{years}</div>
+                                                    <div className='text-sm'>{degree}</div>
+                                                    <div className='text-muted-foreground text-sm font-light'>{years}</div>
                                                 </div>
                                             </div>
                                         );
@@ -93,7 +93,7 @@ const About:FC = () => {
                                     </p>
                                 </div>
                                 <div className='gap-4 mb-12 ml-24 relative'>
-                                    <div className='h-full w-[1px] bg-border bg-[#ededed] dark:bg-[#979DAE] absolute top-[-5px] left-[4px] z-0'></div>
+                                    <div className='h-full w-[1px] bg-border bg-[#ededed] dark:bg-[#979DAE] absolute top-[-5px] left-[5px] z-0'></div>
                                     {workData.map((item, index) => {
                                         const { company, role, title, years} = item;
                                          return (
@@ -103,8 +103,8 @@ const About:FC = () => {
                                                     <div className='text-muted-foreground text-base font-light'>{years}</div>
                                                 </div>
                                                 <div className='flex flex-col ml-12 mb-6'>
-                                                    <div className='text-primary font-semibold text-xl leading-none mb-2'>{company}</div>
-                                                    <div className=''>{role} ({title})</div>
+                                                    <div className='text-primary font-medium text-lg leading-none mb-2'>{company}</div>
+                                                    <div className='text-sm'>{role} ({title})</div>
                                                 </div>
                                             </div>
                                         );
@@ -121,7 +121,7 @@ const About:FC = () => {
                                     </p>
                                 </div>
                                 <div className='text-left xl:ml-20 xl:gap-4 xl:mb-12'>
-                                    <h4 className='text-xl font-semibold mb-2 text-left pb-[0.5px] border-b border-[#ededed] dark:border-[#979DAE]'>
+                                    <h4 className='text-lg font-medium mb-2 text-left pb-[0.5px] border-b border-[#ededed] dark:border-[#979DAE]'>
                                         Skills
                                     </h4>
                                     {skillData.map((item, index) => {
@@ -129,9 +129,9 @@ const About:FC = () => {
                                         return (
                                             <div
                                                 key={index}
-                                                className={`w-2/4 text-center xl:text-left mx-auto xl:mx-0 ${isPrimaryText ? 'text-primary' : ''}`}
+                                                className={`w-2/4 text-left mx-auto xl:mx-0 ${isPrimaryText ? 'text-primary' : ''}`}
                                             >
-                                                <div className={`${isPrimaryText ? 'font-medium' : 'ml-10'}`}>
+                                                <div className={`${isPrimaryText ? 'font-normal text-base' : 'ml-10 text-sm text-left font-light'}`}>
                                                     {item.name}
                                                 </div>
                                             </div>
@@ -139,7 +139,7 @@ const About:FC = () => {
                                     })}
                                 </div>
                                 <div className='text-left xl:ml-20 xl:gap-4 xl:mb-12'>
-                                    <h4 className='text-xl font-semibold mb-2 text-left pb-[0.5px] border-b border-[#ededed] dark:border-[#979DAE]'>
+                                    <h4 className='text-lg font-medium mb-2 text-left pb-[0.5px] border-b border-[#ededed] dark:border-[#979DAE]'>
                                         Tools
                                     </h4>
                                     <div className='flex flex-row gap-x-8 justify-center xl:justify-start mx-auto xl:mx-0'>
@@ -148,8 +148,8 @@ const About:FC = () => {
                                                 <div key={index}>
                                                     <Image
                                                         src={tool.imgPath}
-                                                        width={30}
-                                                        height={30}
+                                                        width={28}
+                                                        height={28}
                                                         alt='tool image' 
                                                     />
                                                 </div>

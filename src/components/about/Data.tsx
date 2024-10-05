@@ -57,7 +57,7 @@ const workData = [
         company: 'Megaride Ltd.',
         role: 'Web Development Intern',
         title: 'Part-time',
-        years: 'Mar 2024 - Current'
+        years: 'Mar 2024 - Jun 2024'
     },
     {
         company: 'InoBasic Co.',
@@ -84,13 +84,13 @@ const skillData = [
         name: 'Languages'
     },
     {
-        name: 'Java, JavaScript, TypeScript, Python, SQL, HTML5+CSS3'
+        name: 'Java, JavaScript, TypeScript, Python, SQL, HTML5, CSS3'
     },
     {
         name: 'Frameworks'
     },
     {
-        name: 'React, React Native, Node.js, Next.js, Laravel, Vue.js'
+        name: 'React, React Native, Node.js, Next.js, Vue.js, Tailwind CSS'
     },
     {
         name: 'Database'
