@@ -32,57 +32,22 @@ const Hero = () => {
             <div className='flex flex-col justify-between gap-x-8'>
                 {/* Text */}
                 <div className='flex flex-col justify-center max-w-[600px] mx-auto xl:mx-0 text-center xl:text-left'>
-                    <motion.div
-                        variants={fadeInAnimationVariants}
-                        initial='initial'
-                        whileInView='animate'
-                        viewport={{once: true}}
-                        custom={0} 
-                        className='text-sm font-semibold uppercase mb-4 text-primary tracking-[4px]'
-                    >
+                    <div className='text-sm font-semibold uppercase mb-4 text-primary tracking-[4px]'>
                         Full-stack Developer
-                    </motion.div>
-                    <motion.h2
-                        variants={fadeInAnimationVariants}
-                        initial='initial'
-                        whileInView='animate'
-                        viewport={{once: true}}
-                        custom={1} 
-                        className='h2'
-                    >
+                    </div>
+                    <h2 className='h2'>
                         Hi, my name is
-                    </motion.h2>
-                    <motion.h1
-                        variants={fadeInAnimationVariants}
-                        initial='initial'
-                        whileInView='animate'
-                        viewport={{once: true}}
-                        custom={2} 
-                        className='h1'
-                    >
+                    </h2>
+                    <h1 className='h1'>
                         Hikaru Suzuki
-                    </motion.h1>
-                    <motion.p
-                        variants={fadeInAnimationVariants}
-                        initial='initial'
-                        whileInView='animate'
-                        viewport={{once: true}}
-                        custom={2} 
-                        className='subtitle max-w-[490px] mx-auto mt-2 xl:mx-0'
-                    >
+                    </h1>
+                    <p className='subtitle max-w-[490px] mx-auto mt-2 xl:mx-0'>
                         Love to create a thing I love
-                    </motion.p>
+                    </p>
                 </div>
 
                 {/* Buttons */}
-                <motion.div 
-                    variants={fadeInAnimationVariants}
-                    initial='initial'
-                    whileInView='animate'
-                    viewport={{once: true}}
-                    custom={3} 
-                    className='flex flex-col gap-y-3 md:flex-row gap-x-3 mx-auto xl:mx-0 mb-12'
-                >
+                <div className='flex flex-col gap-y-3 md:flex-row gap-x-3 mx-auto xl:mx-0 mb-12'>
                     <Link href='/contact'>
                         <Button className='gap-x-2 w-[166px] shadow-lg hover:shadow-none'>
                             Get in touch <Send size={18} />
@@ -93,7 +58,7 @@ const Hero = () => {
                             Download CV <Download size={18} />
                         </Button>
                     </a>
-                </motion.div>
+                </div>
 
                 {/* Socials */}
                 <Socials 

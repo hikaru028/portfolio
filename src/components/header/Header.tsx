@@ -2,7 +2,6 @@
 
 import React, { FC, useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
-// components
 import { Logo, ThemeToggler, Nav, MobileNav } from '@/components'
 
 const Header: FC = () => {
@@ -24,7 +23,7 @@ const Header: FC = () => {
     };
   }, []); // Empty dependency array means this effect runs only once after the initial render
   return (
-    <header className={`${header ? 'py-2 bg-white shadow-lg dark:bg-[#464F66]' : 'py-4 bg-[#f2f2f2] dark:bg-background'} sticky top-0 z-50 transition-all`}>
+    <header className={`${header ? 'py-2 bg-white/80 shadow-lg dark:bg-background/90 backdrop-blur-sm' : 'py-4 bg-[#f2f2f2] dark:bg-background'} sticky top-0 z-50 transition-all`}>
       <div className='container mx-auto'>
         <div className='w-full h-[80px] flex justify-between items-center'>
           {/* Logo */}
