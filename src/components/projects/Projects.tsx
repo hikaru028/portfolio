@@ -26,9 +26,9 @@ const Projects:FC = () => {
                 </Link>
             </div>
 
-            <div className='xl:max-w-[1000px] xl:absolute right-0 top-0'>
+            <div className='w-full xl:max-w-[1000px] xl:absolute xl:-right-12 top-0'>
                 <Swiper 
-                    className='h-[480px]' 
+                    className='h-[600px] xl:h-[550px]' 
                     slidesPerView={1} 
                     breakpoints={{
                         640: {

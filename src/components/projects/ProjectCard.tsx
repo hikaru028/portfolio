@@ -12,17 +12,6 @@ type Props = {
 const ProjectCard:FC<Props> = ({ project }) => {
   return (
     <Card className='group overflow-hidden relative mx-auto xl:mx-0 shadow-lg'>
-        {/* Categories */}
-        <div className='w-full flex justify-start items-center absolute top-4 left-5 z-30 flex-wrap'>
-            {project.category.map((lang: string, index: number) => (
-                <Fragment key={index}>
-                    <Badge className={`text-sm font-medium mr-1 mb-1`}>
-                        {lang}
-                    </Badge>
-                    {index === 4 && <div className='w-full' />}
-                </Fragment>
-            ))}
-        </div>
         <CardHeader className='p-0'>
             <div className='relative w-full h-[300px] flex items-center justify-center bg-tertiary overflow-hidden bg-project_bg_light dark:bg-none dark:bg-[#464F66] bg-no-repeat bg-[30%]'>
                 {/* Image */}
@@ -32,7 +21,7 @@ const ProjectCard:FC<Props> = ({ project }) => {
                         height={200}
                         alt="Project image"
                         src={project.image}
-                        className='shadow-2xl scale-100 group-hover:scale-125 transition-all duration-200'
+                        className='shadow-2xl scale-100 group-hover:scale-110 transition-all duration-300'
                         priority
                     />
                     {/* Link buttons */}
@@ -64,7 +53,17 @@ const ProjectCard:FC<Props> = ({ project }) => {
         {/* Information */}
         <div className='h-full px-8 py-6'>
             <h4 className='h4 mb-1'>{project.title}</h4>
-            <p className='text-muted-foreground text-lg'>{project.description}</p>
+            <p className='text-sm text-muted-foreground mb-2'>{project.description}</p>
+        {/* Categories */}
+        <div className='w-full flex justify-start items-center flex-wrap'>
+            {project.category.map((lang: string, index: number) => (
+                <Fragment key={index}>
+                    <Badge className={`text-sm font-medium mr-1 mb-1 bg-primary/20 hover:bg-primary/20`}>
+                        {lang}
+                    </Badge>
+                </Fragment>
+            ))}
+        </div>
         </div>
     </Card>
   )
