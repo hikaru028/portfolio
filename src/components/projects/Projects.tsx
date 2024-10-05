@@ -32,7 +32,7 @@ const Projects:FC = () => {
                     slidesPerView={1} 
                     breakpoints={{
                         640: {
-                            slidesPerView: 2,
+                            slidesPerView: 3,
                         }
                     }}
                     spaceBetween={30}

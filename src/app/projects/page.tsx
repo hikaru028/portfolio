@@ -23,14 +23,14 @@ const fadeInAnimationVariants = {
 // Remove category duplicates
 const uniqueCategories: string[] = [
   'all projects',
-  ...new Set(ProjectData.map(item => item.category).filter((category): category is string => category !== undefined))
+  ...new Set(ProjectData.flatMap(item => item.category).filter((category): category is string => category !== undefined))
 ];
 
 const Projects: FC = () => {
   const [categories, setCategories] = useState(uniqueCategories);
   const [category, setCategory] = useState<string>('all projects');
   const filteredProjects = ProjectData.filter(project =>
-    category === 'all projects' || project.category === category
+    category === 'all projects' || project.category?.includes(category)
   );
 
   return (

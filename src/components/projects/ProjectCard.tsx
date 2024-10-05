@@ -58,7 +58,7 @@ const ProjectCard:FC<Props> = ({ project }) => {
         <div className='w-full flex justify-start items-center flex-wrap'>
             {project.category.map((lang: string, index: number) => (
                 <Fragment key={index}>
-                    <Badge className={`text-sm font-medium mr-1 mb-1 bg-primary/20 hover:bg-primary/20`}>
+                    <Badge className={`text-sm font-light mr-1 mb-1 bg-primary/20 hover:bg-primary/20`}>
                         {lang}
                     </Badge>
                 </Fragment>
