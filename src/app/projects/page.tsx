@@ -50,7 +50,7 @@ const Projects: FC = () => {
                 onClick={() => setCategory(category)}
                 value={category} 
                 key={index} 
-                className='capitarize w-{162px} md:w-auto'
+                className='capitarize text-sm font-light w-{162px} md:w-auto'
               >
                 {category}
               </TabsTrigger>
