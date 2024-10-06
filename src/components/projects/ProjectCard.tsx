@@ -13,7 +13,7 @@ const ProjectCard:FC<Props> = ({ project }) => {
   return (
     <Card className='group overflow-hidden relative mx-auto xl:mx-0 shadow-lg'>
         <CardHeader className='p-0'>
-            <div className='relative w-full h-[300px] flex items-center justify-center bg-tertiary overflow-hidden bg-project_bg_light dark:bg-none dark:bg-[#464F66] bg-no-repeat bg-[30%]'>
+            <div className='relative w-full h-[300px] flex items-center justify-center bg-tertiary overflow-hidden bg-[#f2f2f2] dark:bg-white/20 bg-no-repeat bg-[30%]'>
                 {/* Image */}
                 <div className='w-full h-full flex justify-center items-center'>
                     <Image
@@ -58,7 +58,7 @@ const ProjectCard:FC<Props> = ({ project }) => {
         <div className='w-full flex justify-start items-center flex-wrap'>
             {project.category.map((lang: string, index: number) => (
                 <Fragment key={index}>
-                    <Badge className={`text-sm font-light mr-1 mb-1 bg-primary/20 hover:bg-primary/20`}>
+                    <Badge className={`text-sm font-light mr-1 mb-1 bg-primary/20 dark:bg-white/20 dark:text-white hover:bg-primary/20`}>
                         {lang}
                     </Badge>
                 </Fragment>

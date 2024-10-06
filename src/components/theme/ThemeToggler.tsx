@@ -11,7 +11,7 @@ const ThemeToggler: FC = () => {
     <>
         <Button
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} 
-          className='w-8 h-8 p-0 rounded-full bg-transparent hover:bg-background'
+          className='w-8 h-8 p-0 rounded-full bg-transparent hover:bg-background dark:hover:bg-white/20'
         >
           <div className='flex justify-center items-center bg-transparent'>
             <SunIcon  className='w-5 h-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0'/>
