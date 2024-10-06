@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState, useEffect, useRef, ChangeEvent } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -8,8 +8,14 @@ import { User, MailIcon, SendHorizontal, Pencil } from 'lucide-react';
 
 const success = 'Message sent successfully!'; 
 
+const contactData = [
+    {field: 'sender', placeholder: 'Full name', icon: User, type: 'text'},
+    {field: 'email', placeholder: 'Email', icon: MailIcon, type: 'email'},
+    {field: 'subject', placeholder: 'Subject', icon: Pencil, type: 'text'}
+];
+
 const Form: FC = () => {
-    const [formData, setFormData] = useState<EmailProps>({ 
+    const [formData, setFormData] = useState<ContactProps>({ 
         sender: '', 
         email: '', 
         subject: '', 
@@ -20,14 +26,33 @@ const Form: FC = () => {
     const [result, setResult] = useState<string | undefined>();
     const [sending, setSending] = useState(false);
     const [visible, setVisible] = useState(false);
+    const [focusedField, setFocusedField] = useState<string | null>(null);
+    const inputRefs = useRef<{ [key: string]: HTMLInputElement | null }>({});
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { id, value } = e.target;
         setFormData(prev => ({ ...prev, [id]: value }));
-    
+        
         // Update the canReset and canSend states based on form data validity
         setCanReset(true);
-        setCanSend(formData.sender !== '' && formData.email !== '' && formData.message !== '');
+        setCanSend(formData.sender !== '' && formData.email !== '' && formData.subject !== '' && formData.message !== '');
+    };
+
+    const handleFocus = (field: string) => {
+        setFocusedField(field);
+    };
+
+    const handleBlur = (field: string) => {
+        if (!formData[field as keyof ContactProps]) {
+            setFocusedField(null);
+        }
+    };
+
+    const handleLabelClick = (field: string) => {
+        if (inputRefs.current[field]) {
+            inputRefs.current[field]?.focus();
+        }
+        handleFocus(field);
     };
 
     const sendEmail = async (e: React.FormEvent) => {
@@ -85,27 +110,42 @@ const Form: FC = () => {
 
     return (
         <form className='flex flex-col gap-y-4' onSubmit={sendEmail} action="/api/route" method='POST'>
-            {/* Full Name */}
-            <div className='relative flex items-center'>
-                <Input onChange={handleChange} type='text' id='sender' placeholder='Full name *' value={formData.sender} required/>
-                <User className='absolute right-6' size={20} />
-            </div>
-
-            {/* Email */}
-            <div className='relative flex items-center'>
-                <Input onChange={handleChange} type='email' id='email' placeholder='Email *' value={formData.email} required/>
-                <MailIcon className='absolute right-6' size={20} />
-            </div>
-
-            {/* Subject */}
-            <div className='relative flex items-center'>
-                <Input onChange={handleChange} type='text' id='subject' placeholder='Subject *' value={formData.subject} required/>
-                <Pencil className='absolute right-6' size={20} />
-            </div>
+            {contactData.map(({ field, placeholder, icon: Icon, type }, index) => (
+                <div key={index} className='relative flex items-center'>
+                    <p 
+                        className={`absolute transition-all duration-200 ${focusedField === field || formData[field as keyof ContactProps] 
+                            ? '-top-3 left-6 text-sm text-primary px-2 bg-background'
+                            : 'top-4 left-8 text-muted-foreground px-2 bg-transparent'
+                        }`}
+                        onClick={() => handleLabelClick(field)}
+                    >
+                        {placeholder} *
+                    </p>
+                    <Input 
+                        ref={(element) => { inputRefs.current[field] = element }} 
+                        onChange={handleChange} 
+                        onFocus={() => handleFocus(field)} 
+                        onBlur={() => handleBlur(field)} 
+                        type={type} 
+                        id={field} 
+                        value={formData[field as keyof ContactProps]} 
+                        required 
+                        className='focus:shadow-[0_0_1px_#fff,inset_0_0_1px_#fff,0_0_2px_#FACC15,0_0_5px_#FACC15,0_0_8px_#FACC15]'
+                    />
+                    <Icon className={`absolute right-6 ${focusedField === field || formData[field as keyof ContactProps] ? 'text-primary' : 'text-muted-foreground'}`} size={20} />
+                </div>
+            ))}
 
             {/* Message */}
             <div className='relative flex items-center'>
-                <Textarea onChange={handleChange} id='message' placeholder='Please type your message... *' value={formData.message} required/>
+                <Textarea 
+                    onChange={handleChange} 
+                    id='message' 
+                    placeholder='Please type your message... *' 
+                    value={formData.message} 
+                    className='focus:shadow-[0_0_1px_#fff,inset_0_0_1px_#fff,0_0_2px_#FACC15,0_0_5px_#FACC15,0_0_8px_#FACC15]'
+                    required
+                />
             </div>
 
             {/* Buttons */}
@@ -145,7 +185,7 @@ const Form: FC = () => {
 
 export default Form;
 
-type EmailProps = {
+type ContactProps = {
     sender: string,
     email: string,
     subject?: string,
