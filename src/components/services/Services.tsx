@@ -11,25 +11,25 @@ import developImg from '../../../public/png/develop.png'
 import maintenanceImg from '../../../public/png/maintenance.png'
 
 
-const iconSize = 35;
+const iconSize = 30;
 const strokeWidth = 1.5;
-const colour = '#FFEFB1';
+const color = '#FFEFB1';
 
 const servicesData = [
     {
-        icon: <GanttChartSquare size={iconSize} strokeWidth={strokeWidth} color={colour} />,
+        icon: <GanttChartSquare size={iconSize} strokeWidth={strokeWidth} color={color} />,
         title: 'Web Design',
         description: 'Offering innovative and user-friendly web design solutions that enhance online presence and drive engagement through visually appealing and functional interfaces.',
         bg: designImg,
     },
     {
-        icon: <Blocks size={iconSize} strokeWidth={strokeWidth} color={colour} />,
+        icon: <Blocks size={iconSize} strokeWidth={strokeWidth} color={color} />,
         title: 'Web Development',
         description: 'Building robust, scalable, and efficient web solutions that deliver seamless performance and interactive experiences.',
         bg: developImg,
     },
     {
-        icon: <Gem size={iconSize} strokeWidth={strokeWidth} color={colour} />,
+        icon: <Gem size={iconSize} strokeWidth={strokeWidth} color={color} />,
         title: 'System Maintenance',
         description: 'Delivering comprehensive system maintenance services to ensure your IT infrastructure remains secure, efficient, and up-to-date, minimising downtime and enhancing performance.',
         bg: maintenanceImg,
@@ -50,7 +50,7 @@ const Services:FC = () => {
                     return (
                         <Card
                             key={index}
-                            className='group w-full max-w-[420px] h-[200px] xl:h-[300px] mx-auto flex flex-col pt-16 pb-10 justify-center items-center relative overflow-hidden'
+                            className='group w-full max-w-[420px] h-[300px] mx-auto flex flex-col pb-10 justify-start items-center relative overflow-hidden'
                         >
                             <div
                                 className='absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-in-out transform group-hover:scale-110'
@@ -62,14 +62,14 @@ const Services:FC = () => {
                                     zIndex: 0,
                                 }}
                             ></div>
-                            <CardHeader className='text-primary absolute -top-[10px]'>
-                                <div className='w-[70px] h-[70px] rounded-full bg-primary/80 flex justify-center items-center brightness-100'>
+                            <CardHeader className='text-primary'>
+                                <div className='w-[50px] h-[50px] rounded-full bg-primary/80 flex justify-center items-center brightness-100'>
                                     {item.icon}
                                 </div>
                             </CardHeader>
                             <CardContent className='text-center z-10'>
                                 <CardTitle className='mb-4'>{item.title}</CardTitle>
-                                <div className='text-lg'>
+                                <div className='text-base'>
                                     {item.description}
                                 </div>
                             </CardContent>
