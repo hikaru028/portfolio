@@ -78,6 +78,7 @@ const Form: FC = () => {
                     setFormData({ sender: '', email: '', subject: '', message: '' });
                     setCanReset(false);
                     setCanSend(false);
+                    setFocusedField('');
                 }, 100);
             }
         } catch (error) {
