@@ -44,12 +44,16 @@ const Contact = (props: Props) => {
               {/* mail */}
               <div className='flex items-center gap-x-8'>
                 <MailIcon size={18} className='text-primary'/>
-                <div>h.suzuki.028@gmail.com</div>
+                <a href='mailto:h.suzuki.028@gmail.com' className='hover:underline'>
+                  <div>h.suzuki.028@gmail.com</div>
+                </a>
               </div>
               {/* phone */}
               <div className='flex items-center gap-x-8'>
                 <PhoneCall size={18} className='text-primary'/>
-                <div>+64 21 084 63502</div>
+                <a href='tel:+642108463502' className='hover:underline'>
+                  <div>+64 21 084 63502</div>
+                </a>
               </div>
               {/* home */}
               <div className='flex items-center gap-x-8'>
