@@ -21,7 +21,7 @@ const ProjectCard:FC<Props> = ({ project }) => {
                         height={200}
                         alt="Project image"
                         src={project.image}
-                        className='shadow-2xl scale-100 group-hover:scale-110 transition-all duration-300'
+                        className='shadow-2xl scale-100 group-hover:scale-110 transition-all duration-300 bg-transparent'
                         priority
                     />
                     {/* Link buttons */}

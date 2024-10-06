@@ -8,6 +8,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules'
 import { ProjectCard, ProjectData } from '@/components'
+import { IoIosArrowForward } from "react-icons/io";
 
 const Projects:FC = () => {
   return (
@@ -32,7 +33,7 @@ const Projects:FC = () => {
                     slidesPerView={1} 
                     breakpoints={{
                         640: {
-                            slidesPerView: 3,
+                            slidesPerView: 2,
                         }
                     }}
                     spaceBetween={30}
@@ -46,6 +47,14 @@ const Projects:FC = () => {
                             </SwiperSlide>
                         );
                     })}
+                    <SwiperSlide className=''>
+                        <div className='w-full h-full flex justify-start items-center'>
+                            <Link href='/projects' className='flex justify-between items-center group'>
+                                <p className=''>See more... </p> 
+                                <IoIosArrowForward className='ml-1 transition-all group-hover:ml-2'/>
+                            </Link>
+                        </div>
+                    </SwiperSlide>
                 </Swiper>
             </div>
         </div>
