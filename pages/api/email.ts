@@ -6,20 +6,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const { sender, email, subject, message } = req.body;
 
         const senderAddress = {
-            name: sender,
-            address: email,
+            name: sender || 'Hikari.',
+            address: email || 'no-reply@hikari.com',
         };
 
-        const receiver = {
-            name: process.env.OWNER || 'Owner Name', 
-            address: process.env.EMAIL || 'owner@example.com',
-        };
+        const receivers = [{
+            name: process.env.OWNER || 'No name', 
+            address: process.env.EMAIL || 'no-reply@example.com',
+        }];
 
         try {
             const result = await sendEmail({
                 sender: senderAddress,
-                receiver: receiver,
-                subject: subject || 'No Subject',
+                receivers: receivers,
+                subject,
                 message,
             });
 

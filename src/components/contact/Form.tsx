@@ -60,7 +60,7 @@ const Form: FC = () => {
         setSending(true);
 
         try {
-            const response = await fetch('/api/route', {
+            const response = await fetch('/api/email', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -94,6 +94,7 @@ const Form: FC = () => {
         setCanSend(false);
         setResult(undefined);
         setVisible(false);
+        setFocusedField('')
     };
 
     // Automatically fade out the message after 5 seconds
@@ -104,12 +105,12 @@ const Form: FC = () => {
                 setVisible(false);
             }, 5000);
 
-            return () => clearTimeout(timer); // Cleanup the timer
+            return () => clearTimeout(timer);
         }
     }, [visible]);
 
     return (
-        <form className='flex flex-col gap-y-4' onSubmit={sendEmail} action="/api/route" method='POST'>
+        <form className='flex flex-col gap-y-4' onSubmit={sendEmail} action="/api/email" method='POST'>
             {contactData.map(({ field, placeholder, icon: Icon, type }, index) => (
                 <div key={index} className='relative flex items-center'>
                     <p 
@@ -174,7 +175,7 @@ const Form: FC = () => {
             {/* Result Message */}
             {visible && result && 
                 <p
-                    className={`w-[350px] m-auto rounded-sm text-center py-4 px-6 transition-all ${result === success ? 'bg-[#51ed61]/80' : 'bg-[#ed5151]/80'}`}
+                    className={`w-[350px] m-auto rounded-sm text-center py-4 px-6 transition-all ${result === success ? 'bg-[#8cff98]' : 'bg-[#fa5050]'}`}
                 >
                     {result}
                 </p>
