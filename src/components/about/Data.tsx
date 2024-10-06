@@ -43,7 +43,7 @@ const educationData = [
     {
         university: 'Soka University',
         degree: 'Postgraduate certificate of Education',
-        years: '2013 - 2025'
+        years: '2013 - 2015'
     },
     {
         university: 'Kanagawa University',
@@ -84,7 +84,7 @@ const skillData = [
         name: 'Frameworks'
     },
     {
-        name: 'React, React Native, Node.js, Next.js, Vue.js, Tailwind CSS'
+        name: 'Flask, React, React Native, Node.js, Next.js, Vue.js, Tailwind CSS'
     },
     {
         name: 'Database'
