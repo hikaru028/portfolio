@@ -6,20 +6,20 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { User, MailIcon, SendHorizontal, Pencil } from 'lucide-react';
 
-const success = 'Message sent successfully!'; 
+const success = 'Message sent successfully!';
 
 const contactData = [
-    {field: 'sender', placeholder: 'Full name', icon: User, type: 'text'},
-    {field: 'email', placeholder: 'Email', icon: MailIcon, type: 'email'},
-    {field: 'subject', placeholder: 'Subject', icon: Pencil, type: 'text'}
+    { field: 'sender', placeholder: 'Full name', icon: User, type: 'text' },
+    { field: 'email', placeholder: 'Email', icon: MailIcon, type: 'email' },
+    { field: 'subject', placeholder: 'Subject', icon: Pencil, type: 'text' }
 ];
 
 const Form: FC = () => {
-    const [formData, setFormData] = useState<ContactProps>({ 
-        sender: '', 
-        email: '', 
-        subject: '', 
-        message: '' 
+    const [formData, setFormData] = useState<ContactProps>({
+        sender: '',
+        email: '',
+        subject: '',
+        message: ''
     });
     const [canReset, setCanReset] = useState(false);
     const [canSend, setCanSend] = useState(false);
@@ -32,7 +32,7 @@ const Form: FC = () => {
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { id, value } = e.target;
         setFormData(prev => ({ ...prev, [id]: value }));
-        
+
         // Update the canReset and canSend states based on form data validity
         setCanReset(true);
         setCanSend(formData.sender !== '' && formData.email !== '' && formData.subject !== '' && formData.message !== '');
@@ -114,25 +114,25 @@ const Form: FC = () => {
         <form className='flex flex-col gap-y-4' onSubmit={sendEmail} action="/api/email" method='POST'>
             {contactData.map(({ field, placeholder, icon: Icon, type }, index) => (
                 <div key={index} className='relative flex items-center'>
-                    <p 
-                        className={`absolute transition-all duration-200 ${focusedField === field || formData[field as keyof ContactProps] 
+                    <p
+                        className={`absolute transition-all duration-200 ${focusedField === field || formData[field as keyof ContactProps]
                             ? '-top-3 left-6 text-sm text-primary px-2 bg-background'
                             : 'top-4 left-8 text-muted-foreground px-2 bg-transparent'
-                        }`}
+                            }`}
                         onClick={() => handleLabelClick(field)}
                     >
                         {placeholder} *
                     </p>
-                    <Input 
-                        ref={(element) => { inputRefs.current[field] = element }} 
-                        onChange={handleChange} 
-                        onFocus={() => handleFocus(field)} 
-                        onBlur={() => handleBlur(field)} 
-                        type={type} 
-                        id={field} 
-                        value={formData[field as keyof ContactProps]} 
-                        required 
-                        className='focus:shadow-[0_0_1px_#FACC15,inset_0_0_1px_#FACC15,0_0_2px_#FACC15,0_0_5px_#FACC15,0_0_8px_#FACC15]'
+                    <Input
+                        ref={(element) => { inputRefs.current[field] = element }}
+                        onChange={handleChange}
+                        onFocus={() => handleFocus(field)}
+                        onBlur={() => handleBlur(field)}
+                        type={type}
+                        id={field}
+                        value={formData[field as keyof ContactProps]}
+                        required
+                        className={`focus:shadow-[0_0_1px_#fff,inset_0_0_1px_#fff,0_0_2px_#FACC15,0_0_5px_#FACC15,0_0_8px_#FACC15]  ${formData[field as keyof ContactProps] !== '' && 'border border-primary dark:border dark:border-primary'}`}
                     />
                     <Icon className={`absolute right-6 ${focusedField === field || formData[field as keyof ContactProps] ? 'text-primary' : 'text-muted-foreground'}`} size={20} />
                 </div>
@@ -140,12 +140,12 @@ const Form: FC = () => {
 
             {/* Message */}
             <div className='relative flex items-center'>
-                <Textarea 
-                    onChange={handleChange} 
-                    id='message' 
-                    placeholder='Please type your message... *' 
-                    value={formData.message} 
-                    className='focus:shadow-[0_0_1px_#fff,inset_0_0_1px_#fff,0_0_2px_#FACC15,0_0_5px_#FACC15,0_0_8px_#FACC15]'
+                <Textarea
+                    onChange={handleChange}
+                    id='message'
+                    placeholder='Please type your message... *'
+                    value={formData.message}
+                    className={`focus:shadow-[0_0_1px_#fff,inset_0_0_1px_#fff,0_0_2px_#FACC15,0_0_5px_#FACC15,0_0_8px_#FACC15]  ${formData.message && 'border border-primary dark:border dark:border-primary'}`}
                     required
                 />
             </div>
@@ -165,7 +165,7 @@ const Form: FC = () => {
                 {/* Send button */}
                 <Button
                     type='submit'
-                    className={`${canSend ? 'active shadow-lg hover:shadow-none' : '' } h-14 flex items-center gap-x-3 min-w-[150px]`}
+                    className={`${canSend ? 'active shadow-lg hover:shadow-none' : ''} h-14 flex items-center gap-x-3 min-w-[150px]`}
                     disabled={!canSend}
                 >
                     {sending ? 'Sending...' : 'Let\'s Talk '}
@@ -174,7 +174,7 @@ const Form: FC = () => {
             </div>
 
             {/* Result Message */}
-            {visible && result && 
+            {visible && result &&
                 <p
                     className={`w-[350px] m-auto rounded-sm text-center py-4 px-6 transition-all ${result === success ? 'bg-[#8cff98]' : 'bg-[#fa5050]'}`}
                 >
