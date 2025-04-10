@@ -55,7 +55,7 @@ const educationData = [
 const workData = [
     {
         company: 'MDMC Advertising',
-        role: 'Software Developer Intern',
+        role: 'Software Developer',
         title: 'Full-time',
         years: 'Oct 2024 - Current'
     },
@@ -72,7 +72,7 @@ const skillData = [
         name: 'Languages'
     },
     {
-        name: 'Java, JavaScript, TypeScript, Python, SQL, HTML5, CSS3'
+        name: 'Java, JavaScript, TypeScript, Python, SQL, HTML5/CSS3'
     },
     {
         name: 'Frameworks'
