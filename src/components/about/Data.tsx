@@ -65,12 +65,6 @@ const workData = [
         title: 'Part-time',
         years: 'Mar 2024 - Jun 2024'
     },
-    {
-        company: 'InoBasic Co.',
-        role: 'Web Development Intern',
-        title: 'Part-time',
-        years: 'Nov 2023 - Feb 2024'
-    },
 ];
 
 const skillData = [
@@ -96,7 +90,7 @@ const skillData = [
         name: 'Could Computing'
     },
     {
-        name: 'AWS'
+        name: 'AWS, GCP'
     },
     {
         name: 'Testing'
@@ -109,9 +103,6 @@ const skillData = [
         data: [
             {
                 imgPath: '/svg/vscode.svg'
-            },
-            {
-                imgPath: '/svg/intellij.svg'
             },
             {
                 imgPath: '/svg/vim.svg'
