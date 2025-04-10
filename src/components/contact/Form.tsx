@@ -134,7 +134,7 @@ const Form: FC = () => {
                         required
                         className={`focus:shadow-[0_0_1px_#fff,inset_0_0_1px_#fff,0_0_2px_#FACC15,0_0_5px_#FACC15,0_0_8px_#FACC15]  ${formData[field as keyof ContactProps] !== '' && 'border border-primary dark:border dark:border-primary'}`}
                     />
-                    <Icon className={`absolute right-6 ${focusedField === field || formData[field as keyof ContactProps] ? 'text-primary' : 'text-muted-foreground'}`} size={20} />
+                    {/* <Icon className={`absolute right-6 ${focusedField === field || formData[field as keyof ContactProps] ? 'text-primary' : 'text-muted-foreground'}`} size={20} /> */}
                 </div>
             ))}
 
