@@ -1,72 +1,58 @@
-'use client'
-
-import React from 'react'
-import { MailIcon, HomeIcon, PhoneCall } from 'lucide-react'
-import Image from 'next/image'
-import { useTheme } from 'next-themes'
-import { Form } from '@/components'
-
-type Props = {}
-
-const Contact = (props: Props) => {
-  const { theme, setTheme } = useTheme();
-
+import type { Metadata } from "next";
+import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import Form from "@/components/contact/Form";
+import { profile } from "@/data/profile";
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Get in touch with Hikaru Suzuki about software engineering opportunities and collaboration.",
+};
+export default function Contact() {
   return (
-    <section>
-      <div className='container mx-auto'>
-        <div className='grid xl:grid-cols-2 pt-20 xl:h-[480px] mb-6 xl:mb-24'>
-          {/* Text */}
-          <div className='flex flex-col justify-center ml-10'>
-            <div className='flex items-center gap-x-4 mb-4 w-full'>
-              <span className='w-10 h-[2px] bg-primary'></span>
-              <p className='tect-primay text-lg'>Say Hello!</p>
-            </div>
-            <h1 className='h1 max-w-md mb-8'>Let&apos;s Work Together.</h1>
-            <p className='subtitle max-w-[400px]'>
-              I would love to hear from you! Please fill out the form below or send an email to me.
+    <main id="main-content" className="page-shell section-space">
+      <div className="section-heading">
+        <p className="eyebrow">CONTACT / SAY HELLO</p>
+        <h1 className="page-title">
+          Let’s build
+          <br />
+          <span className="serif-accent">something useful.</span>
+        </h1>
+      </div>
+      <div className="contact-grid">
+        <div>
+          <p className="contact-intro">
+            Have an opportunity, a project in mind, or just want to connect? I’d
+            love to hear from you.
+          </p>
+          <div className="contact-information">
+            <a href={`mailto:${profile.email}`}>
+              <Mail size={19} />
+              <span>{profile.email}</span>
+            </a>
+            <a href={`tel:${profile.phoneHref}`}>
+              <Phone size={19} />
+              <span>{profile.phone}</span>
+            </a>
+            <p>
+              <MapPin size={19} />
+              <span>{profile.location}</span>
             </p>
           </div>
-
-          {/* Illustration */}
-          <div className='hidden xl:flex'>
-            <Image
-              src={`${theme === 'dark' ? '/svg/contact-dark.svg' : '/svg/contact-light.svg'}`}
-              alt="Contact image (pngaaa.com/detail/4605895#google_vignette)"
-              width={550}
-              height={257}
-            />
-          </div>
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-button"
+          >
+            Connect on LinkedIn <ArrowUpRight size={16} />
+          </a>
+          <p className="contact-note">
+            Interested in international teams and opportunities to build
+            thoughtful software together.
+          </p>
         </div>
-
-        {/* Text/form */}
-        <div className='grid xl:grid-cols-2 mb-24 xl:mb-32'>
-          <div className='flex flex-col gap-y-4 xl:gap-y-8 mb-12 xl:mb-24 text-base xl:text-lg ml-16'>
-            {/* mail */}
-            <div className='flex items-center gap-x-8'>
-              <MailIcon size={18} className='text-primary' />
-              <a href='mailto:h.suzuki.028@gmail.com' className='hover:underline'>
-                <div>h.suzuki.028@gmail.com</div>
-              </a>
-            </div>
-            {/* phone */}
-            <div className='flex items-center gap-x-8'>
-              <PhoneCall size={18} className='text-primary' />
-              <a href='tel:+642108463502' className='hover:underline'>
-                <div>+64 21 084 63502</div>
-              </a>
-            </div>
-            {/* home */}
-            <div className='flex items-center gap-x-8'>
-              <HomeIcon size={18} className='text-primary' />
-              <div>Auckland, New Zealand </div>
-            </div>
-          </div>
-          {/* Form */}
-          <Form />
-        </div>
+        <Form />
       </div>
-    </section>
+    </main>
   );
-};
-
-export default Contact
+}

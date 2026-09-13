@@ -1,22 +1,26 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import { ReactNode } from "react";
 import "./globals.css";
-import React, { FC, ReactNode } from 'react';
-import { Header, Footer, ThemeProvider, ScrollButton } from '@/components';
-
-const outfit = Outfit({ subsets: ["latin"] });
-
+import Header from "@/components/header/Header";
+import Footer from "@/components/footer/Footer";
+import ThemeProvider from "@/components/theme/ThemeProvider";
+import ScrollButton from "@/components/scroll-btn/ScrollButton";
 export const metadata: Metadata = {
-  title: "Hikaru's Portfolio",
-  description: "My name is Hikaru Suzuki, I am a software developer. This is my portfolio.",
+  title: {
+    default: "Hikaru Suzuki — Software Engineer",
+    template: "%s | Hikaru Suzuki",
+  },
+  description:
+    "Tokyo-based software engineer building web and mobile applications with Angular, TypeScript, Java, and Next.js. Explore my experience, projects, and technical toolkit.",
 };
-
-
-const RootLayout: FC<RootLayoutProps> = ({ children }) => {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={outfit.className}>
-        <ThemeProvider attribute='class' defaultTheme='light'>
+      <body>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          <a href="#main-content" className="skip-link">
+            Skip to content
+          </a>
           <Header />
           {children}
           <Footer />
@@ -25,10 +29,4 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
       </body>
     </html>
   );
-};
-
-export default RootLayout;
-
-interface RootLayoutProps {
-  children: ReactNode;
 }

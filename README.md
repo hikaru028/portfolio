@@ -1,38 +1,27 @@
-This is my individual portfolio website, which is mainly used in Next.js and TypeScript.
+# Hikaru Suzuki — Portfolio
 
-## Getting Started
+A responsive Next.js and TypeScript portfolio with career history, project filtering, downloadable CV, light/dark themes, and a contact form.
 
-First, install Node modules:
-```bash
-npm install
-```
+## Development
 
-Next, set up the `.env` file
-
-Finally, run the development server:
-
-```bash
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
+Open http://localhost:3000. Run `npm run lint`, `npx tsc --noEmit`, and `npm run build` before shipping.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `src/data/profile.ts`: biography details, experience, education, and skills.
+- `src/components/projects/ProjectData.tsx`: project descriptions, technologies, and public repository links.
+- `CV.pdf`: supplied source CV. Copy updated versions to `public/CV.pdf` for the download link.
+- `src/app/globals.css`: responsive styles and theme tokens. The typography uses system fonts and does not require a build-time font download.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Contact form
 
-## Learn More
+Create `.env.local` using `.env.example`. Use a Gmail app password for `APP_PASS`, and set `EMAIL` to the destination inbox. Never commit credentials.
 
-To learn more about Next.js, take a look at the following resources:
+The API validates input, sends plain-text messages from the authenticated mailbox, and sets the visitor as `Reply-To`. Missing configuration returns an explicit unavailable message. Direct email and phone links remain available on the contact page.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The homepage is `/`, the project archive is `/projects`, and the contact page is `/contact`.

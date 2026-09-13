@@ -1,72 +1,73 @@
-import React, { FC, Fragment } from 'react'
-import Link from 'next/link'
-import { GithubIcon, Link2Icon } from 'lucide-react'
-import { Card, CardHeader } from '../ui/card'
-import { Badge } from '../ui/badge'
-import Image from 'next/image'
-
-type Props = {
-    project?: any,
-}
-
-const ProjectCard:FC<Props> = ({ project }) => {
+import Image from "next/image";
+import { ArrowUpRight, GitBranch, Cloud, Braces } from "lucide-react";
+import type { Project } from "./ProjectData";
+export default function ProjectCard({ project }: { project: Project }) {
+  const Icon = project.category.includes("AWS") ? Cloud : Braces;
   return (
-    <Card className='group overflow-hidden relative mx-auto xl:mx-0 shadow-lg'>
-        <CardHeader className='p-0'>
-            <div className='relative w-full h-[300px] flex items-center justify-center bg-tertiary overflow-hidden bg-[#f2f2f2] dark:bg-white/20 bg-no-repeat bg-[30%]'>
-                {/* Image */}
-                <div className='w-full h-full flex justify-center items-center'>
-                    <Image
-                        width={300}
-                        height={200}
-                        alt="Project image"
-                        src={project.image}
-                        className='shadow-2xl scale-100 group-hover:scale-110 transition-all duration-300 bg-transparent'
-                        priority
-                    />
-                    {/* Link buttons */}
-                    <div className='flex gap-x-4 absolute'>
-                        {project.link !== '' &&
-                            <a 
-                                href={project.link}
-                                target="_blank" 
-                                className='bg-secondary w-[50px] h-[50px] rounded-full flex justify-center items-center scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-200'
-                            >
-                                <Link2Icon className='text-white dark:text-black' />
-                            </a>
-                        }
-                        {project.github !== '' &&
-                            <a 
-                                href={project.github}
-                                target="_blank" 
-                                className='bg-secondary w-[50px] h-[50px] rounded-full flex justify-center items-center scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-200'
-                            >
-                                <GithubIcon className='text-white dark:text-black' />
-                            </a>
-                        }
-                    </div>
-                </div>
-
-            </div>
-        </CardHeader>
-        
-        {/* Information */}
-        <div className='h-full px-8 py-6'>
-            <h4 className='h4 mb-1'>{project.title}</h4>
-            <p className='text-sm text-muted-foreground mb-2'>{project.description}</p>
-        {/* Categories */}
-        <div className='w-full flex justify-start items-center flex-wrap'>
-            {project.category.map((lang: string, index: number) => (
-                <Fragment key={index}>
-                    <Badge className={`text-sm font-light mr-1 mb-1 bg-primary/20 dark:bg-white/20 dark:text-white hover:bg-primary/20`}>
-                        {lang}
-                    </Badge>
-                </Fragment>
-            ))}
+    <article className="project-card">
+      <div
+        className={`project-visual ${project.metric ? "metric-visual" : ""}`}
+      >
+        {project.image ? (
+          <Image
+            src={project.image}
+            alt={`${project.title} application — ${project.title === "Hikaru’s portfolio" ? "previous design" : "project preview"}`}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 33vw"
+            className="project-image"
+          />
+        ) : project.metric ? (
+          <div className="project-metric">
+            <strong>{project.metric}</strong>
+            <span>{project.metricLabel}</span>
+            <span className="metric-footnote">
+              Code refactoring + query optimisation
+            </span>
+          </div>
+        ) : (
+          <div className="project-placeholder">
+            <Icon size={60} strokeWidth={1} />
+            <span>{project.category.join(" / ")}</span>
+          </div>
+        )}
+        <span className="project-kind">{project.kind}</span>
+      </div>
+      <div className="project-body">
+        <h3>{project.title}</h3>
+        <p>{project.description}</p>
+        <div className="tag-list">
+          {project.category.map((tag) => (
+            <span key={tag}>{tag}</span>
+          ))}
         </div>
+        <details className="project-details">
+          <summary>Project details</summary>
+          <p>{project.detail}</p>
+        </details>
+        <div className="project-links">
+          {project.github ? (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`View ${project.title} code on GitHub`}
+            >
+              <GitBranch size={15} /> View code <ArrowUpRight size={15} />
+            </a>
+          ) : (
+            <span className="small-note">
+              {project.kind === "Professional"
+                ? "Professional work · overview only"
+                : "Project overview"}
+            </span>
+          )}
+          {project.link && (
+            <a href={project.link} target="_blank" rel="noopener noreferrer">
+              Live site <ArrowUpRight size={15} />
+            </a>
+          )}
         </div>
-    </Card>
-  )
+      </div>
+    </article>
+  );
 }
-
-export default ProjectCard
