@@ -1,29 +1,34 @@
-"use client";
-import { useEffect, useState } from "react";
-import { ArrowUp } from "lucide-react";
-export default function ScrollButton() {
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const update = () => setVisible(window.scrollY > 900);
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    return () => window.removeEventListener("scroll", update);
-  }, []);
-  return visible ? (
-    <button
-      className="back-to-top"
-      aria-label="Back to top"
-      onClick={() =>
-        window.scrollTo({
-          top: 0,
-          behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
-            .matches
-            ? "auto"
-            : "smooth",
-        })
-      }
-    >
-      <ArrowUp size={20} />
-    </button>
-  ) : null;
-}
+'use client'
+
+import React, { FC, useState, useEffect } from 'react';
+import { RiArrowUpSLine } from 'react-icons/ri';
+
+const ScrollButton: FC = () => {
+    const [upButton, setUpButton] = useState(false);
+
+    const scrollUp = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setUpButton(window.scrollY > 1000);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    return (
+        <div
+            onClick={scrollUp}
+            className={`sticky bottom-4 m-auto w-10 h-10 rounded-full cursor-pointer flex justify-center items-center bg-white/70 shadow-lg dark:bg-[#464F66] z-50 transition-transform duration-300 ${upButton ? 'scale-100' : 'scale-0'}`}
+        >
+            <RiArrowUpSLine className='text-xl text-black dark:text-white' />
+        </div>
+    );
+};
+
+export default ScrollButton;

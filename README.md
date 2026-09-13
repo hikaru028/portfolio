@@ -13,10 +13,10 @@ Open http://localhost:3000. Run `npm run lint`, `npx tsc --noEmit`, and `npm run
 
 ## Content
 
-- `src/data/profile.ts`: biography details, experience, education, and skills.
+- `src/components/about/Data.tsx`: personal details, experience, education, and skills.
 - `src/components/projects/ProjectData.tsx`: project descriptions, technologies, and public repository links.
 - `CV.pdf`: supplied source CV. Copy updated versions to `public/CV.pdf` for the download link.
-- `src/app/globals.css`: responsive styles and theme tokens. The typography uses system fonts and does not require a build-time font download.
+- `src/app/globals.css`: the original responsive styles and theme tokens.
 
 ## Contact form
 

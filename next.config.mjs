@@ -1,3 +1,8 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = { reactStrictMode: true };
-export default nextConfig;
+import withPlugins from 'next-compose-plugins';
+
+const nextConfig = {
+  reactStrictMode: true,
+};
+
+export default withPlugins([], nextConfig);
+ 

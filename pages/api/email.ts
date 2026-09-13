@@ -32,11 +32,7 @@ export default async function handler(
       subject: parsed.data.subject,
       message: parsed.data.message,
     });
-    return res
-      .status(200)
-      .json({
-        message: "Thanks for reaching out! Your message has been sent.",
-      });
+    return res.status(200).json({ message: "Message sent successfully!" });
   } catch {
     return res
       .status(500)

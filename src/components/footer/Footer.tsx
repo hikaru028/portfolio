@@ -1,23 +1,27 @@
-import { ArrowUpRight } from "lucide-react";
-import { profile } from "@/data/profile";
-export default function Footer() {
+import React from 'react'
+import { Socials } from '@/components'
+
+type Props = {}
+
+const Footer = (props: Props) => {
   return (
-    <footer className="site-footer page-shell">
-      <div>
-        <a className="footer-name" href="mailto:h.suzuki.028@gmail.com">
-          Hikaru Suzuki
-        </a>
-        <p>Software engineer. Always learning.</p>
-      </div>
-      <div className="footer-links">
-        <a href={profile.github} target="_blank" rel="noopener noreferrer">
-          GitHub <ArrowUpRight size={14} />
-        </a>
-        <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">
-          LinkedIn <ArrowUpRight size={14} />
-        </a>
-        <span>© {new Date().getFullYear()} Hikaru Suzuki</span>
+    <footer className='py-20'>
+      <div className='container mx-auto'>
+        <div className='flex flex-col items-center justify-between'>
+          {/* Social medias */}
+          <Socials 
+            containerStyles='flex gap-x-6 mx-auto xl:mx-0' 
+            iconStyles='text-[20px] text-primary hover:text-primary/70 transition-all'
+          />
+
+          {/* Copyright */}
+          <div className='text-muted-foreground mt-10'>
+            Copyright &copy; {new Date().getFullYear()} Hikari.
+          </div>
+        </div>
       </div>
     </footer>
-  );
+  )
 }
+
+export default Footer

@@ -1,8 +1,20 @@
-"use client";
-import { ThemeProvider as NextThemeProvider } from "next-themes";
-import type { ComponentProps } from "react";
-export default function ThemeProvider(
-  props: ComponentProps<typeof NextThemeProvider>,
-) {
-  return <NextThemeProvider {...props} />;
+'use client';
+
+import React, { FC, ReactNode } from 'react';
+import { ThemeProvider as NextThemeProvider } from 'next-themes';
+
+interface ThemeProviderProps {
+    children: ReactNode;
+    attribute: string;
+    defaultTheme: string;
 }
+
+const ThemeProvider: FC<ThemeProviderProps> = ({ children, attribute, defaultTheme, ...props }) => {
+    return (
+        <NextThemeProvider attribute={attribute} defaultTheme={defaultTheme} {...props}>
+            {children}
+        </NextThemeProvider>
+    );
+};
+
+export default ThemeProvider;

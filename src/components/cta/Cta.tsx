@@ -1,25 +1,24 @@
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-export default function Cta() {
+import React from 'react'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+// #979DAE
+type Props = {}
+
+const Cta = (props: Props) => {
   return (
-    <section className="contact-band">
-      <div className="page-shell">
-        <p className="eyebrow">LET’S CONNECT</p>
-        <div className="contact-band-row">
-          <h2>
-            Good work starts with
-            <br />
-            <span className="serif-accent">a conversation.</span>
-          </h2>
-          <Link href="/contact" className="action-button">
-            Get in touch <ArrowUpRight size={18} />
-          </Link>
+    <section className='py-24 w-full h-full bg-cta_bg dark:bg-none dark:bg-[#464F66] bg-no-repeat bg-cover'>
+        <div className='container mx-auto'>
+            <div className='flex flex-col items-center w-full'>
+                <h2 className='h2 w-full text-center mb-8'>
+                    Have a role or project in mind? <br />I&apos;d be glad to hear from you.
+                </h2>
+                <Link href='/contact'>
+                    <Button className='shadow-lg hover:shadow-none'>Contact me</Button>
+                </Link>
+            </div>
         </div>
-        <p>
-          I’m interested in international teams, thoughtful products, and
-          opportunities to keep growing.
-        </p>
-      </div>
     </section>
-  );
+  )
 }
+
+export default Cta
